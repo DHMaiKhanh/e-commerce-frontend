@@ -33,4 +33,37 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Slim, unobtrusive scrollbar for horizontal carousels */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.5);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Frosted-glass surface used by the sticky header */
+  .glass {
+    backdrop-filter: saturate(160%) blur(12px);
+  }
+
+  /* Shimmer sweep for skeletons / promo highlights */
+  .shimmer {
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    background-size: 200% 100%;
+  }
 }

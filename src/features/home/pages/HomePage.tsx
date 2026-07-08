@@ -1,18 +1,35 @@
-import { Link } from 'react-router-dom';
-
-import { Button } from '@components/ui/Button';
 import { ROUTES } from '@constants/routes';
+
+import { CategoryGrid } from '../components/CategoryGrid';
+import { FlashSale } from '../components/FlashSale';
+import { HeroBanner } from '../components/HeroBanner';
+import { ProductGrid } from '../components/ProductGrid';
+import { SectionHeader } from '../components/SectionHeader';
+import { featuredProducts } from '../data/homeMockData';
 
 export default function HomePage() {
   return (
-    <section className="container mx-auto flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center">
-      <h1 className="text-4xl font-bold md:text-5xl">Chào mừng đến E-commerce</h1>
-      <p className="max-w-xl text-gray-600">
-        Khám phá hàng nghìn sản phẩm chất lượng với giá tốt nhất, giao hàng toàn quốc.
-      </p>
-      <Link to={ROUTES.PRODUCTS}>
-        <Button size="lg">Khám phá ngay</Button>
-      </Link>
-    </section>
+    <div className="bg-brand-glow bg-gray-50 pb-16">
+      <div className="container mx-auto flex flex-col gap-6 pt-5">
+        <HeroBanner />
+        <CategoryGrid />
+        <FlashSale />
+
+        <section className="overflow-hidden rounded-2xl bg-white shadow-soft">
+          <SectionHeader title="GỢI Ý HÔM NAY" accent viewAllHref={ROUTES.PRODUCTS} />
+          <div className="p-3 sm:p-4">
+            <ProductGrid products={featuredProducts} />
+          </div>
+          <div className="py-6 text-center">
+            <button
+              type="button"
+              className="rounded-full border border-brand-200 bg-white px-8 py-2.5 text-sm font-semibold text-brand-500 shadow-soft transition hover:border-brand-300 hover:bg-brand-50 active:scale-95"
+            >
+              Xem thêm
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
