@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { ROUTES } from '@constants/routes';
 import { formatCurrency, formatNumber } from '@utils/format';
+import { handleImageError } from '@utils/image';
 
 import type { Product } from '@/types/product';
 
@@ -22,13 +23,14 @@ function FlashItem({ product }: { product: Product }) {
   return (
     <Link
       to={`/products/${product.slug}`}
-      className="group flex w-[160px] flex-shrink-0 flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-gray-100 transition-all hover:-translate-y-1 hover:shadow-lift hover:ring-brand-200"
+      className="group flex w-[160px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-white/60 bg-white/60 backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-lift hover:ring-1 hover:ring-brand-200"
     >
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
           src={product.images[0]}
           alt={product.name}
           loading="lazy"
+          onError={handleImageError}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         {discount > 0 && (
@@ -55,15 +57,16 @@ function FlashItem({ product }: { product: Product }) {
 
 export function FlashSale() {
   return (
-    <section className="overflow-hidden rounded-2xl bg-white shadow-soft">
-      <div className="flex items-center justify-between bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-5 py-4 text-white">
-        <div className="flex items-center gap-4">
+    <section className="overflow-hidden rounded-3xl border border-white/50 bg-white/50 shadow-glass backdrop-blur-xl">
+      <div className="relative flex items-center justify-between overflow-hidden bg-gradient-to-r from-brand-600 via-brand-500 to-fuchsia-500 px-5 py-4 text-white">
+        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
+        <div className="relative flex items-center gap-4">
           <span className="text-xl font-extrabold tracking-wide drop-shadow">⚡ FLASH SALE</span>
           <CountdownTimer targetDate={TARGET} />
         </div>
         <Link
           to={ROUTES.PRODUCTS}
-          className="rounded-full bg-white/20 px-3.5 py-1.5 text-sm font-medium text-white backdrop-blur transition hover:bg-white/30"
+          className="relative rounded-full border border-white/30 bg-white/15 px-3.5 py-1.5 text-sm font-medium text-white backdrop-blur transition hover:bg-white/25"
         >
           Xem tất cả ›
         </Link>

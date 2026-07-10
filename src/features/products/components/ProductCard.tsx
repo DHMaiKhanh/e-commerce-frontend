@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { buildPath } from '@constants/routes';
 import { cn } from '@utils/cn';
 import { formatCurrency, formatNumber } from '@utils/format';
+import { handleImageError } from '@utils/image';
 
 import type { Product } from '@/types/product';
 
@@ -32,13 +33,14 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
   return (
     <Link
       to={buildPath.productDetail(product.slug)}
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift hover:ring-brand-200"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-white/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lift hover:ring-1 hover:ring-brand-200"
     >
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
           src={product.images[0]}
           alt={product.name}
           loading="lazy"
+          onError={handleImageError}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
 

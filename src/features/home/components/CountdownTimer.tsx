@@ -36,10 +36,10 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
     <div className="flex items-center gap-1 font-mono">
       {parts.map((part, i) => (
         <span key={i} className="flex items-center gap-1">
-          <span className="grid h-7 min-w-7 place-items-center rounded-lg bg-gray-900/90 px-1.5 text-sm font-bold text-white shadow-inner ring-1 ring-white/10">
+          <span className="grid h-7 min-w-7 place-items-center rounded-lg border border-white/30 bg-white/15 px-1.5 text-sm font-bold text-white shadow-inner backdrop-blur-md">
             {part}
           </span>
-          {i < parts.length - 1 && <span className="font-bold text-white">:</span>}
+          {i < parts.length - 1 && <span className="font-bold text-white/80">:</span>}
         </span>
       ))}
     </div>

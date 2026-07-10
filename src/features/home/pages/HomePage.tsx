@@ -9,13 +9,13 @@ import { featuredProducts } from '../data/homeMockData';
 
 export default function HomePage() {
   return (
-    <div className="bg-brand-glow bg-gray-50 pb-16">
+    <div className="min-h-screen bg-aurora bg-gray-50 pb-16">
       <div className="container mx-auto flex flex-col gap-6 pt-5">
         <HeroBanner />
         <CategoryGrid />
         <FlashSale />
 
-        <section className="overflow-hidden rounded-2xl bg-white shadow-soft">
+        <section className="overflow-hidden rounded-3xl border border-white/50 bg-white/50 shadow-glass backdrop-blur-xl">
           <SectionHeader title="GỢI Ý HÔM NAY" accent viewAllHref={ROUTES.PRODUCTS} />
           <div className="p-3 sm:p-4">
             <ProductGrid products={featuredProducts} />
@@ -23,7 +23,7 @@ export default function HomePage() {
           <div className="py-6 text-center">
             <button
               type="button"
-              className="rounded-full border border-brand-200 bg-white px-8 py-2.5 text-sm font-semibold text-brand-500 shadow-soft transition hover:border-brand-300 hover:bg-brand-50 active:scale-95"
+              className="rounded-full border border-white/60 bg-white/70 px-8 py-2.5 text-sm font-semibold text-brand-500 shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lift active:scale-95"
             >
               Xem thêm
             </button>

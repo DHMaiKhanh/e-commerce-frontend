@@ -48,6 +48,9 @@ const config: Config = {
         'brand-gradient-dark': 'linear-gradient(120deg, #312e81 0%, #4338ca 55%, #4f46e5 100%)',
         'brand-glow':
           'radial-gradient(1200px circle at 15% -20%, rgba(99,102,241,0.18), transparent 45%)',
+        aurora:
+          'radial-gradient(1000px circle at 8% -5%, rgba(129,140,248,0.55), transparent 55%), radial-gradient(900px circle at 95% 5%, rgba(236,72,153,0.4), transparent 55%), radial-gradient(1000px circle at 50% 60%, rgba(34,211,238,0.28), transparent 55%), radial-gradient(800px circle at 20% 100%, rgba(250,204,21,0.22), transparent 50%)',
+        'glass-sheen': 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 60%)',
       },
       borderRadius: {
         '2xl': '1rem',
@@ -58,6 +61,7 @@ const config: Config = {
         card: '0 4px 24px -6px rgba(16,24,40,0.10)',
         lift: '0 12px 32px -8px rgba(16,24,40,0.18)',
         glow: '0 8px 28px -6px rgba(99,102,241,0.45)',
+        glass: '0 8px 32px -8px rgba(31,38,135,0.12), inset 0 1px 1px 0 rgba(255,255,255,0.6)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
